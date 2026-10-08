@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MAINTENANCE DASHBOARD - PT. KARYA BALI INDAH 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EDF2F5;--card:#fff;--ink:#14232E;--mu:#5E7080;--line:#DCE5EB;--soft:#E6F2F3;--c1:#0B7A83;--c2:#D98E04;--c3:#2D6CDF;--bad:#D6453D;--ok:#1E9A5A;--h1:#0F2B3A;--h2:#0B6670;--okbg:#DDF3E8;--badbg:#FBE3E1;--nobg:#ECEFF2}
+@media(prefers-color-scheme:dark){:root{--bg:#0D1920;--card:#14252F;--ink:#E6EEF3;--mu:#92A5B3;--line:#263C49;--soft:#1B3844;--c1:#3CC3C8;--c2:#F0B03A;--c3:#6B9BFF;--bad:#FF7A70;--ok:#4FD08A;--h1:#0A1D27;--h2:#0B5560;--okbg:#17382A;--badbg:#42211F;--nobg:#22343F}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-variant-numeric:tabular-nums}
+header{background:linear-gradient(120deg,var(--h1),var(--h2));color:#fff;padding:22px 20px 16px}
+.in{max-width:1180px;margin:auto}
+h1{margin:0;font-size:22px;font-weight:600;letter-spacing:.2px}.per{opacity:.75;font-size:13px;margin:3px 0 14px}
+.pills{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
+.pill{flex:none;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#fff;border-radius:99px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
+.pill.on{background:#fff;color:#0F2B3A;font-weight:600;border-color:#fff}.pill:disabled{opacity:.35;cursor:default}
+main{max-width:1180px;margin:0 auto;padding:16px 16px 40px}
+h2{font-size:16px;font-weight:600;margin:26px 0 10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 1px 2px rgba(15,43,58,.05);animation:up .5s both}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.card{animation:none}}
+.hero{display:grid;gap:14px;grid-template-columns:minmax(250px,330px) 1fr}
+@media(max-width:760px){.hero{grid-template-columns:1fr}}
+.gw{text-align:center}.gw svg{width:100%;max-width:290px}
+.sumr{display:inline-block;margin-top:6px;font-size:13px;padding:5px 12px;border-radius:99px;background:var(--soft)}
+.apq .r{display:grid;grid-template-columns:96px 1fr 56px;gap:10px;align-items:center;margin:11px 0;font-size:13px}
+.tr{height:9px;border-radius:9px;background:var(--soft);overflow:hidden}.tr i{display:block;height:100%;border-radius:9px;background:var(--c1)}
+.apq b{text-align:right;font-weight:600}.lead{font-size:15px;line-height:1.5;margin:0 0 6px}.mu{color:var(--mu);font-size:13px}
+.kpis{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(172px,1fr));margin-top:14px}
+.kc .kl{font-size:13px;color:var(--mu)}.kc .kv{font-size:30px;font-weight:600;margin:2px 0 6px}.kc .kv small{font-size:13px;font-weight:400;color:var(--mu);margin-left:4px}
+.chip{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;margin-right:6px}
+.ok{background:var(--okbg);color:var(--ok)}.bad{background:var(--badbg);color:var(--bad)}.no{background:var(--nobg);color:var(--mu)}
+.kt,.kd{font-size:12px;color:var(--mu);margin:3px 0}.kd b{font-weight:600}.up{color:var(--ok)}.dn{color:var(--bad)}.kc svg{width:100%;height:30px;margin-top:6px}
+.g2{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:820px){.g2{grid-template-columns:minmax(0,1fr)}}
+.card h3{margin:0 0 8px;font-size:14px;font-weight:600}.card .sb{font-size:12px;color:var(--mu);margin:-4px 0 6px}
+.card svg.ch{width:100%;height:auto;display:block}.lg{font-size:12px;color:var(--mu);margin-top:4px}.lg span{margin-right:12px}.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.hb{display:grid;grid-template-columns:130px 1fr 70px;gap:10px;align-items:center;font-size:13px;margin:10px 0}.hb b{text-align:right;font-weight:600}
+.wide{grid-column:1/-1}.wide svg.ch{max-height:320px}.hit{fill:transparent;cursor:pointer}footer{max-width:1180px;margin:0 auto;padding:0 16px 30px;font-size:12px;color:var(--mu)}
+</style></head><body>
+<header><div class="in"><h1 id="ttl"></h1><div class="per" id="per"></div><div class="pills" id="pills"></div></div></header>
+<main>
+<section class="hero"><div class="card gw" id="gauge"></div><div class="card apq" id="apq"></div></section>
+<div class="kpis" id="kpis"></div>
+<h2>Equipment effectiveness (OEE)</h2><div class="g2"><div class="card"><h3>OEE trend vs target</h3><div id="c1"></div></div><div class="card"><h3>Availability, Performance, Quality</h3><div id="c2"></div></div></div>
+<h2>Breakdown</h2><div class="g2"><div class="card"><h3>Breakdown frequency per month</h3><div class="sb">Times per month</div><div id="c3"></div></div><div class="card"><h3>Breakdown by line</h3><div class="sb" id="s1"></div><div id="d1"></div></div></div>
+<h2>Maintenance compliance: PM and AM</h2><div class="g2"><div class="card"><h3>PM compliance</h3><div id="c4"></div></div><div class="card"><h3>AM compliance</h3><div id="c5"></div></div></div>
+<h2>Work orders</h2><div class="g2"><div class="card"><h3>WOs created and completed</h3><div id="c6"></div></div><div class="card"><h3>WO completion</h3><div id="c8"></div></div><div class="card wide"><h3>WOs by type</h3><div class="sb" id="s2"></div><div id="d2"></div></div></div>
+<h2>Maintenance cost</h2><div class="g2"><div class="card wide"><h3>Actual cost vs budget</h3><div class="sb">IDR million per month</div><div id="c9"></div></div></div>
+</main>
+<footer>Click a month at the top, or a point on any chart, to change the reporting month. Source: data-dashboard-maintenance Excel file.</footer>
+<script>
+// ====== TEMPEL HASIL SHEET Export_Web DI BAWAH INI (ganti seluruh blok const D={...};) ======
+const D={
+  plant:"MAINTENANCE DASHBOARD - PT. KARYA BALI INDAH",period:"Januari – Desember 2026",
+  months:["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"],
+  oee:[83,80.1,84.9,85.6,78.4,82.9,81.6,79,79.9,null,null,null],avail:[92,99,99,99,96.4,98.8,98.5,99,99,null,null,null],perf:[92.1,81.1,85.9,86.5,81.4,83.9,82.9,80,80.8,null,null,null],qual:[98,99.9,99.9,99.9,99.9,99.9,100,99.7,99.9,null,null,null],
+  bd:[0,0,0,0,1,0,1,1,0,null,null,null],pm:[100,100,100,100,100,100,100,100,100,null,null,null],am:[100,100,100,100,100,100,100,100,100,null,null,null],
+  woIn:[13,15,14,16,20,11,15,10,21,null,null,null],woDone:[13,15,14,16,20,11,15,10,21,null,null,null],backlog:[30,35,35,20,20,22,38,23,38,null,null,null],
+  cost:[15472712,4052156,12365000,13059090,9703175,24106860,53605654,26561481,null,null,null,null],budget:[22964499,22964499,22964499,22964499,22964499,22964499,22964499,22964499,22964499,null,null,null],
+  tgt:{oee:78,pm:98,am:98,bd:25,wo:95,bk:40,cost:100},
+  bdLine:{"Filler machine":[0,0,0,0,0,0,0,0,0,null,null,null],"Label machine":[0,0,0,0,1,0,1,0,0,null,null,null],"Destillation":[0,0,0,0,0,0,0,1,0,null,null,null],"Compressor":[0,0,0,0,0,0,0,0,0,null,null,null],"Chiller":[0,0,0,0,0,0,0,0,0,null,null,null],"Boiler":[0,0,0,0,0,0,0,0,0,null,null,null],"WTP":[0,0,0,0,0,0,0,0,0,null,null,null]},
+  woType:{"Preventive":[6,6,9,8,11,2,2,5,11,null,null,null],"Corrective":[0,4,2,2,1,2,1,2,3,null,null,null],"General":[7,5,3,6,8,7,13,3,7,null,null,null]},
+  costCat:{}
+};
+// ============================================
+const MI={Januari:"January",Februari:"February",Maret:"March",Mei:"May",Juni:"June",Juli:"July",Agustus:"August",Oktober:"October",Desember:"December"};
+D.period=D.period.replace(/[A-Za-z]+/g,w=>MI[w]||w);D.months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const KT={"Spare part":"Spare parts","Jasa kontraktor":"Contractor services","Lubricant & consumable":"Lubricants & consumables","Lain-lain":"Others"};
+["bdLine","woType"].forEach(k=>{const o={};Object.keys(D[k]||{}).forEach(n=>o[KT[n]||n]=D[k][n]);D[k]=o});
+const $=s=>document.querySelector(s),N=D.months.length;
+const FULL=["January","February","March","April","May","June","July","August","September","October","November","December"];
+const f=(v,d=0)=>v==null?"–":v.toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});
+const pc=(a,b)=>a.map((v,i)=>v==null||b[i]==null?null:Math.round(v/b[i]*1000)/10);
+const big=Math.max(...D.cost.filter(v=>v!=null))>1e5,jt=v=>v==null?null:(big?v/1e6:v);
+D.woRate=pc(D.woDone,D.woIn);D.costPct=pc(D.cost,D.budget);const costJ=D.cost.map(jt),budJ=D.budget.map(jt);
+let sel=0;D.oee.forEach((v,i)=>{if(v!=null)sel=i});
+const W=480,H=180,pl=36,pr=10,pt=14,pb=24,X=i=>pl+(i+.5)*(W-pl-pr)/N,bw=(W-pl-pr)/N;
+function frame(vals,min0){const a=vals.filter(v=>v!=null);let mn=min0?0:Math.min(...a),mx=Math.max(...a);const p=(mx-mn||1)*.18,cap=!min0&&mx<=100&&mn>40;if(!min0)mn-=p;mx+=p;if(cap&&mx>100)mx=100;if(min0&&mx===0)mx=1;
+const Y=v=>H-pb-(v-mn)/(mx-mn)*(H-pb-pt);let o="";for(let k=0;k<4;k++){const v=mn+(mx-mn)*k/3,y=Y(v);o+=`<line x1="${pl}" x2="${W-pr}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="${pl-6}" y="${y+3}" font-size="10" text-anchor="end" fill="var(--mu)">${f(v,mx-mn<6?1:0)}</text>`}
+o+=`<rect x="${X(sel)-bw/2}" y="${pt}" width="${bw}" height="${H-pb-pt}" rx="6" fill="var(--soft)" opacity=".7"/>`;return{Y,o}}
+function axisX(){let o="";D.months.forEach((m,i)=>o+=`<text x="${X(i)}" y="${H-7}" font-size="10.5" text-anchor="middle" fill="${i==sel?"var(--ink)":"var(--mu)"}" font-weight="${i==sel?600:400}">${m}</text><rect class="hit" data-i="${i}" x="${X(i)-bw/2}" y="${pt}" width="${bw}" height="${H-pt}"/>`);return o}
+const legend=s=>s.length>1?`<div class="lg">${s.map(e=>`<span><i style="background:${e.c}"></i>${e.n}</span>`).join("")}</div>`:"";
+function line(s,o){o=o||{};const tg=o.tg||[],dec=o.dec||0,all=s.flatMap(e=>e.d).concat(tg),{Y,o:g}=frame(all,0);let h=`<svg class="ch" viewBox="0 0 ${W} ${H}">${g}`;
+tg.forEach(t=>h+=`<line x1="${pl}" x2="${W-pr}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--c2)" stroke-width="1.5" stroke-dasharray="5 4"/><text x="${W-pr}" y="${Y(t)-4}" font-size="10" text-anchor="end" fill="var(--c2)">target ${f(t,dec)}</text>`);
+s.forEach((e,k)=>{const pts=e.d.map((v,i)=>v==null?null:[X(i),Y(v),v,i]);let run=[];const runs=[];pts.forEach(p=>{if(p)run.push(p);else if(run.length){runs.push(run);run=[]}});if(run.length)runs.push(run);
+runs.forEach(r=>{if(k==0&&o.area!==false)h+=`<polygon points="${r.map(p=>p[0]+","+p[1]).join(" ")} ${r[r.length-1][0]},${H-pb} ${r[0][0]},${H-pb}" fill="${e.c}" opacity=".12"/>`;h+=`<polyline fill="none" stroke="${e.c}" stroke-width="2.4" stroke-linejoin="round" points="${r.map(p=>p[0]+","+p[1]).join(" ")}"/>`});
+pts.forEach(p=>{if(!p)return;const on=p[3]==sel;h+=`<circle cx="${p[0]}" cy="${p[1]}" r="${on?5.5:3}" fill="${on?"var(--card)":e.c}" stroke="${e.c}" stroke-width="${on?3:0}"><title>${D.months[p[3]]}: ${f(p[2],dec)}</title></circle>`;if(on&&k==0)h+=`<text x="${p[0]}" y="${p[1]-11<pt+8?p[1]+19:p[1]-11}" font-size="11.5" font-weight="600" text-anchor="middle" fill="var(--ink)">${f(p[2],dec)}</text>`})});
+return h+axisX()+"</svg>"+legend(s)}
+function col(s,o){o=o||{};const dec=o.dec||0,{Y,o:g}=frame(s.flatMap(e=>e.d).concat(o.tg!=null?[o.tg]:[]),1),k=s.length,w=Math.min(26,bw*.7/k);let h=`<svg class="ch" viewBox="0 0 ${W} ${H}">${g}`;
+s.forEach((e,j)=>e.d.forEach((v,i)=>{if(v==null)return;const x=X(i)-w*k/2+j*w,y=Y(v),on=i==sel;h+=`<rect x="${x}" y="${y}" width="${w-2}" height="${Math.max(0,H-pb-y)}" rx="3" fill="${e.c}" opacity="${on?1:.55}"><title>${D.months[i]} · ${e.n||""}: ${f(v,dec)}</title></rect>`;if(k==1)h+=`<text x="${x+(w-2)/2}" y="${y-4}" font-size="10" text-anchor="middle" fill="var(--ink)">${f(v,dec)}</text>`}));
+if(k>1){const vs=s.map(e=>e.d[sel]).filter(v=>v!=null);if(vs.length)h+=`<text x="${X(sel)}" y="${Y(Math.max(...vs))-5}" font-size="10" font-weight="600" text-anchor="middle" fill="var(--ink)">${vs.map(v=>f(v,dec)).join(" / ")}</text>`}
+if(o.tg!=null)h+=`<line x1="${pl}" x2="${W-pr}" y1="${Y(o.tg)}" y2="${Y(o.tg)}" stroke="var(--c2)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+return h+axisX()+"</svg>"+legend(s)}
+function hb(o,el,sub,dec){const e=Object.entries(o).map(([k,a])=>[k,a[sel]]).filter(q=>q[1]!=null),m=Math.max(1,...e.map(q=>q[1])),t=e.reduce((a,q)=>a+q[1],0);
+$(sub).textContent=FULL[sel]+" "+(D.period.match(/\d{4}/)||[""])[0];
+$(el).innerHTML=e.length?e.map(([k,v])=>`<div class="hb"><span>${k}</span><div class="tr"><i style="width:${v/m*100}%"></i></div><b>${f(v,dec)}</b></div>`).join("")+`<div class="mu">Total ${f(t,dec)}</div>`:`<div class="mu">${Object.keys(o).length?"No data for this month.":"No breakdown data provided yet."}</div>`}
+function spark(a){const p=a.map((v,i)=>v==null?null:[i*100/(N-1)+5,26-(v-Math.min(...a.filter(x=>x!=null)))/((Math.max(...a.filter(x=>x!=null))-Math.min(...a.filter(x=>x!=null)))||1)*22,i]).filter(Boolean);
+return `<svg viewBox="0 0 110 30" preserveAspectRatio="none"><polyline fill="none" stroke="var(--c1)" stroke-width="1.6" points="${p.map(q=>q[0]+","+q[1]).join(" ")}"/>${p.filter(q=>q[2]==sel).map(q=>`<circle cx="${q[0]}" cy="${q[1]}" r="3" fill="var(--c1)"/>`).join("")}</svg>`}
+const KP=[["Breakdowns",D.bd,D.tgt.bd,0,0," times"],["PM compliance",D.pm,D.tgt.pm,1,1,"%"],["AM compliance",D.am,D.tgt.am,1,1,"%"],["WO completion",D.woRate,D.tgt.wo,1,1,"%"],["WO backlog",D.backlog,D.tgt.bk,0,0," WOs"],["Cost vs budget",D.costPct,D.tgt.cost,1,0,"%"]];
+const st=(v,t,hb)=>v==null?"no":(hb?v>=t:v<=t)?"ok":"bad";
+function draw(){$("#ttl").textContent=D.plant;$("#per").textContent=D.period+" · Reporting month: "+FULL[sel];
+$("#pills").innerHTML=D.months.map((m,i)=>`<button class="pill${i==sel?" on":""}" data-i="${i}"${D.oee[i]==null?" disabled":""}>${m}</button>`).join("");
+const o=D.oee[sel],po=sel>0?D.oee[sel-1]:null,so=st(o,D.tgt.oee,1),R=80,cx=100,cy=100,L=Math.PI*R,v=Math.max(0,Math.min(100,o||0)),a=Math.PI*(1-D.tgt.oee/100);
+$("#gauge").innerHTML=`<svg viewBox="0 0 200 120"><path d="M20,100 A80,80 0 0 1 180,100" fill="none" stroke="var(--soft)" stroke-width="16" stroke-linecap="round"/><path d="M20,100 A80,80 0 0 1 180,100" fill="none" stroke="var(--${so=="bad"?"bad":"c1"})" stroke-width="16" stroke-linecap="round" stroke-dasharray="${v/100*L} ${L}"/><line x1="${cx+(R-14)*Math.cos(a)}" y1="${cy-(R-14)*Math.sin(a)}" x2="${cx+(R+12)*Math.cos(a)}" y2="${cy-(R+12)*Math.sin(a)}" stroke="var(--c2)" stroke-width="3"/><text x="100" y="92" font-size="30" font-weight="600" text-anchor="middle" fill="var(--ink)">${o==null?"–":f(o,1)+"%"}</text><text x="100" y="112" font-size="11" text-anchor="middle" fill="var(--mu)">OEE · target ${f(D.tgt.oee)}%</text></svg>`;
+const ks=KP.map(k=>st(k[1][sel],k[2],k[4])).concat(so).filter(x=>x!="no"),okc=ks.filter(x=>x=="ok").length;
+$("#gauge").innerHTML+=`<div class="sumr">${okc} of ${ks.length} KPIs on target</div>`;
+const dl=po==null||o==null?"":` ${o>=po?"up":"down"} ${f(Math.abs(o-po),1)} pts from ${D.months[sel-1]}.`;
+$("#apq").innerHTML=`<p class="lead">OEE for ${FULL[sel]} ${o==null?"has no data yet":(so=="ok"?"meets":"is below")+" the "+f(D.tgt.oee)+"% target"+(dl?",":".")+dl}</p><div class="mu">OEE = Availability × Performance × Quality</div>`+[["Availability",D.avail],["Performance",D.perf],["Quality",D.qual]].map(([n,a])=>`<div class="r"><span>${n}</span><div class="tr"><i style="width:${a[sel]||0}%"></i></div><b>${f(a[sel],1)}%</b></div>`).join("");
+$("#kpis").innerHTML=KP.map(k=>{const v=k[1][sel],p=sel>0?k[1][sel-1]:null,s=st(v,k[2],k[4]),d=v==null||p==null?"":v-p,good=d===""?true:(k[4]?d>=0:d<=0);
+return `<div class="card kc"><div class="kl">${k[0]}</div><div class="kv">${f(v,k[3]&&k[5]=="%"?1:0)}<small>${v==null?"":k[5]}</small></div><div class="kt"><span class="chip ${s}">${s=="ok"?"On target":s=="bad"?"Off target":"No data yet"}</span>${k[4]?"≥":"≤"} ${f(k[2])}${k[5]=="%"?"%":""}</div><div class="kd">${d===""?"&nbsp;":`<b class="${good?"up":"dn"}">${d>=0?"▲":"▼"} ${f(Math.abs(d),k[3]&&k[5]=="%"?1:0)}</b> vs ${D.months[sel-1]}`}</div>${spark(k[1])}</div>`}).join("");
+$("#c1").innerHTML=line([{d:D.oee,c:"var(--c1)"}],{tg:[D.tgt.oee],dec:1});
+$("#c2").innerHTML=line([{d:D.avail,c:"var(--c1)",n:"Availability"},{d:D.perf,c:"var(--c3)",n:"Performance"},{d:D.qual,c:"var(--c2)",n:"Quality"}],{area:false,dec:1});
+$("#c3").innerHTML=col([{d:D.bd,c:"var(--bad)",n:"Breakdown"}],{});hb(D.bdLine,"#d1","#s1");
+$("#c4").innerHTML=line([{d:D.pm,c:"var(--ok)"}],{tg:[D.tgt.pm],dec:1});$("#c5").innerHTML=line([{d:D.am,c:"var(--c3)"}],{tg:[D.tgt.am],dec:1});
+$("#c6").innerHTML=col([{d:D.woIn,c:"var(--c3)",n:"Created"},{d:D.woDone,c:"var(--c1)",n:"Completed"}]);
+hb(D.woType,"#d2","#s2");
+$("#c8").innerHTML=line([{d:D.woRate,c:"var(--c1)"}],{tg:[D.tgt.wo],dec:1});
+$("#c9").innerHTML=col([{d:costJ,c:"var(--c1)",n:"Actual"},{d:budJ,c:"var(--c3)",n:"Budget"}],{dec:1})}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-i]");if(t&&D.oee[+t.dataset.i]!=null){sel=+t.dataset.i;draw()}});
+draw();
+</script></body></html>
